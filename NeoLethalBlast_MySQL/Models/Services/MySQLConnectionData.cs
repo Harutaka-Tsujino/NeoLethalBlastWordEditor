@@ -32,7 +32,7 @@ namespace NeoLethalBlast_MySQL.Models.Services
 
 		public static void ReadConnectionStrings()
 		{
-			connectionString = ConfigurationManager.ConnectionStrings[ ].ConnectionString;
+			connectionString = ConfigurationManager.ConnectionStrings["default"].ConnectionString;
 		}
 
 		private static string connectionString;

@@ -151,7 +151,14 @@ namespace NeoLethalBlast_MySQL.Views
 			DataTable autoIncrementTable = new DataTable();
 			autoIncrementData.Fill(autoIncrementTable);
 
-			tableAutoIncrement = int.Parse(autoIncrementTable.Rows[0][0].ToString());
+			if (autoIncrementTable.Rows[0][0].GetType() == typeof(DBNull))
+			{
+				tableAutoIncrement = 1;
+
+				return;
+			}
+
+			 tableAutoIncrement = int.Parse(autoIncrementTable.Rows[0][0].ToString());
 		}
 
 		private void SetID(object sender, EventArgs e)
